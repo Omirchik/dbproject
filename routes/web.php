@@ -18,3 +18,10 @@ Route::get('/', function () {
 Route::get('subjects', 'TestController@chooseSubjects');
 
 Route::get('users', 'TestController@test');
+
+Route::post('show_direction', 'TestController@showDirection');
+
+Route::post('show_professions', 'TestController@showProfessions');
+
+Route::post('show_specialties', 'TestController@showSpecialties');
+

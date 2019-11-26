@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
 
-@section('title')
-
+@section('jscss')
+    <link rel="stylesheet" href="{{ asset('css/app.css') }}" type="text/css">
 @endsection
 
 @section('content')
@@ -12,7 +12,7 @@
         <div class="center-part">
 
             <h1>Find Your Destination</h1>
-            <a class="btn btn-primary" href="#" role="button">Get Started</a>
+            <a class="btn btn-primary" href="subjects" role="button">Get Started</a>
 
         </div>
 

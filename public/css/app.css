@@ -11127,11 +11127,86 @@ body {
           align-items: center;
 }
 
-.selectable {
+form .subjects {
+  height: 100vh;
+}
+
+.subjects {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+.card {
   border: 1px solid blue;
-  height: 50px;
-  width: 100px;
+  height: 70px;
+  width: 200px;
   cursor: pointer;
   color: blue;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+.selected {
+  background-color: #000078;
+}
+
+.unselectable {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.direction_cards {
+  display: -webkit-box;
+  display: flex;
+  flex-wrap: wrap;
+  -webkit-box-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+          align-items: center;
+}
+
+.card-dir {
+  border: 1px solid #ced8e3;
+  text-align: center;
+  border-radius: 0.25rem;
+  color: #000;
+  box-sizing: border-box;
+  width: 16.6667%;
+  font-size: 16px;
+  margin-left: 15px;
+  padding: 15px 12px;
+  margin-top: 15px;
+  height: 80px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.selected-dir {
+  border: 1px solid #0047ff;
+}
+
+.submit-btn {
+  margin-top: 20px;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+  justify-content: center;
+}
+
+.unselectable-dir {
+  cursor: default;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 

@@ -27,22 +27,70 @@ html , body{
     flex-direction: column;
     align-items: center;
 
-} 
-
-.selectable{
-    border: 1px solid blue;
-    height: 50px;
-    width: 100px;
-    cursor: pointer;
-    color: blue;
+}
+// SUBJECTS
+form .subjects{
+    height: 100vh;
 }
 
+.subjects{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+} 
+.card{
+    border: 1px solid blue;
+    height: 70px;
+    width: 200px;
+    cursor: pointer;
+    color: blue;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
 
+.selected{
+    background-color: rgb(0, 0, 120);
+}
+.unselectable{
+    background-color: rgba(0, 0, 0, 0.5);
+}
 
+// DIRECTION
+.direction_cards{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+}
+.card-dir{
+    border: 1px solid #ced8e3;
+    text-align: center;
+    border-radius: .25rem;
+    color: #000;
+    box-sizing: border-box;
+    width: 16.6667%;
+    font-size: 16px;
+    margin-left: 15px;
+    padding: 15px 12px;
+    margin-top: 15px;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.selected-dir{
+    border: 1px solid #0047ff;
+}
+.submit-btn{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
 
-
-
-
-
-
-
+.unselectable-dir{
+    cursor: default;
+    background-color: rgba(0, 0, 0, 0.3);
+}
