@@ -25,3 +25,5 @@ Route::post('show_professions', 'TestController@showProfessions');
 
 Route::post('show_specialties', 'TestController@showSpecialties');
 
+Route::post('/post-data', 'TestController@recieveData')->name('postData');
+

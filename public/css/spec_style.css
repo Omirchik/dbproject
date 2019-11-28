@@ -1,0 +1,48 @@
+.mapdiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+}
+.mapdiv path{
+    fill-rule:evenodd;
+    stroke: #483C32;
+    stroke-width:2px;
+    stroke-linecap:butt;
+    stroke-linejoin:miter;
+    stroke-opacity:1;
+    transition: fill 0.3s;
+}
+
+.batys{
+    opacity:1;
+    fill:#9ef19e;
+    fill-opacity:0.90597427;
+}
+.ortalyk{
+    fill:#ff9480;
+    fill-opacity:0.90588236;
+}
+.ontustik{
+    fill:#f3b63f;
+    fill-opacity:0.90588235;
+}
+.north{
+    fill:#c5bf7c;
+    fill-opacity:0.90588236;
+}
+.shygys{
+    fill:#7ea9d4;
+    fill-opacity:0.90588236;
+}
+
+.selected{
+    fill: forestgreen;
+    fill-opacity:0.80588236;
+}
+
+.reg_name {
+    fill: white;
+    font-size: 17px;
+    display: block;
+}

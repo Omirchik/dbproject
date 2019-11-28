@@ -2,28 +2,53 @@ profs = [];
 var profCards = document.querySelectorAll('.card-body');
 var btn = document.querySelector('#profs-choose-btn');
 
+var popUp = document.querySelector('.bg-modal');
+var popUpTitle = document.querySelector('.title');
+var popUpText = document.querySelector('.text-content');
+
+prof_descr = []
+prof_title = []
+
 document.addEventListener("DOMContentLoaded", function(event) {
     
     for (i = 0; i < profCards.length; i++) {
         var cardText = profCards[i].querySelector('.card-text');
-        let s = cardText.textContent.trim();
-        cardText.textContent = s;
-        cardText.textContent = truncateString(s, profCards[i].querySelector('h5').textContent.length,200);
+        let text = cardText.textContent.trim();
+        var cardTitle = profCards[i].querySelector('.card-title');
+        let title = cardTitle.textContent.trim();
+        prof_title.push(title);
+        prof_descr.push(text);
+        cardText.textContent = truncateString(text, prof_title[i].length,200);
     }
-
 
     for (i = 0; i < profCards.length; i++) {
         profCards[i].addEventListener('click', addProf, false);
     }
-    
-    
-
-
+    // Handle Prof Selection
     document.querySelector('.close').addEventListener('click', function(){
         document.querySelector('.bg-modal').style.display = 'none';
     });
 
+    var viewBtns = document.querySelectorAll('.view-btn');
+    for (i = 0; i < viewBtns.length; i++) {
+
+        viewBtns[i].addEventListener('click', viewCard, false);
+
+    }
 });
+function viewCard(e){
+    e.preventDefault();
+
+    clickedCardIndex = e.currentTarget.dataset.id;
+    
+    popUpTitle.textContent = prof_title[clickedCardIndex];
+    popUpText.textContent = prof_descr[clickedCardIndex];
+    // alert(e.currentTarget.parentElement.parentElement);
+    popUp.style.top = window.scrollY+'px';
+    popUp.style.display = 'flex';
+}
+
+
 var submit_form = document.querySelector('.profs_form');
 submit_form.addEventListener('submit', onSubmit,false);
 
@@ -43,15 +68,15 @@ function onSubmit(event){
 
 function addProf(e){
     var selectedProf = e.currentTarget;
-    var prof_name = selectedProf.querySelector('h5').textContent;
+    var prof_code = selectedProf.dataset.code;
 
 
     if(selectedProf.classList.contains('selected')){
         selectedProf.classList.remove('selected');
-        removeFromArray(prof_name);
+        removeFromArray(prof_code);
     }else{
         selectedProf.classList.add('selected');
-        profs.push(prof_name);
+        profs.push(prof_code);
     }
     var count = profs.length;
     if(count > 0){
@@ -78,3 +103,9 @@ function truncateString(str, k,num){
     if(num<=3) return str.slice(0,num)+'...';
     return str.slice(0,num-k)+"...";
 }
+
+window.addEventListener('scroll', function() {
+    var btn = document.querySelector('#profs-choose-btn');
+    btn.style.top = (window.scrollY + 100)+'px';
+
+});

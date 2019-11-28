@@ -2,7 +2,10 @@
 
 @section('jscss')
     <script src="{{ asset('js/choose_prof.js')}}" defer></script>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/bootstrap-grid.min.css')}}">
+
     <link rel="stylesheet" href="{{ asset('css/prof_style.css') }}" type="text/css">
 
 @endsection
@@ -19,34 +22,39 @@
                 <div class="row equal">
 
                     @for($j = 0; $j < 4 && $i*4 + $j < count($professions); $j++)
-                    
+                    @php
+                    $k = $i*4+$j
+                    @endphp
                     <div class="col-3 d-flex pb-3">
                         <div class="card" style="width: 18rem;">
-                                <div class="card-body d-flex flex-column">
-                                    <h5 class="card-title">{{$professions[$i*4+$j]->prof_name}}</h5>
-                                    <p class="card-text">
-                                            {{$professions[$i*4+$j]->prof_description}}
-                                    </p>
-                                    <div class="btns mt-auto">
-                                            <a href="#" class="btn btn-primary">View</a>
-                                            <a href="#" class="btn btn-primary">add</a>
-                                    </div>
-                                        
-                                </div>
+                            <div class="card-body d-flex flex-column" data-code = {{$professions[$k]->prof_name}}>
+                                <h5 class="card-title">{{$professions[$k]->prof_name}}</h5>
+                                <p class="card-text">
+                                        {{$professions[$k]->prof_description}}
+                                </p>
+                            </div>
+                            <div class="card-footer">
+                                <button class="btn btn-primary mt-auto view-btn" data-id={{$k}}>View</button> 
+                            </div>
                         </div>
                     </div>
                     @endfor
                 
                 </div>
             @endfor
-        </div>
-        <div class="submit-btn">
-                <button type="submit" id="profs-choose-btn" class="btn btn-success" disabled>
-                    Следующий
-                </button>
+            <button type="submit" id="profs-choose-btn" class="btn btn-success" disabled>
+                    &#8594
+            </button>
         </div>
     </form>
 </div>
+
+{{-- <div class="submit-btn"> --}}
+    {{-- <button type="submit" id="profs-choose-btn" class="btn btn-success" disabled>
+        &#8594
+    </button> --}}
+{{-- </div> --}}
+
 
 <div class="bg-modal">
         <div class="modal-content">

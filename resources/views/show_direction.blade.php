@@ -10,11 +10,15 @@
 
         <form action="show_professions" class="direction_form" method="POST">
             @csrf
+            @foreach($subjects as $subject)
+                <input type="hidden" name="subjects[]" value="{{$subject}}">
+            @endforeach
+
             <div class="direction_cards">
                 @foreach ($directions as $direction)
                     
                     <div class="card-dir">
-                        {{ $direction->direction}}
+                        {{ $direction->prof_direction}}
                     </div>
 
                 @endforeach
