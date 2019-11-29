@@ -88,8 +88,6 @@ function addProf(e){
             btn.disabled = true;
         }
     }
-
-    console.log(profs);
 }
 
 function removeFromArray(item){

@@ -27,14 +27,14 @@
                     @endphp
                     <div class="col-3 d-flex pb-3">
                         <div class="card" style="width: 18rem;">
-                            <div class="card-body d-flex flex-column" data-code = {{$professions[$k]->prof_name}}>
+                            <div class="card-body d-flex flex-column" data-code = "{{$professions[$k]->prof_name}}">
                                 <h5 class="card-title">{{$professions[$k]->prof_name}}</h5>
                                 <p class="card-text">
                                         {{$professions[$k]->prof_description}}
                                 </p>
                             </div>
                             <div class="card-footer">
-                                <button class="btn btn-primary mt-auto view-btn" data-id={{$k}}>View</button> 
+                                <button class="btn btn-primary mt-auto view-btn" data-id="{{$k}}">View</button> 
                             </div>
                         </div>
                     </div>

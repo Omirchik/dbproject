@@ -221,8 +221,8 @@
 		
 	<form class="spec_form" method="POST" data-route="{{route('postData')}}">
 		@csrf
-		@foreach ($codes as $code)
-			<input type="hidden" name='item[]' value={{$code}}>
+		@foreach ($prof_names as $prof_name)
+			<input type="hidden" name='item[]' value="{{$prof_name}}">
 		@endforeach
 	</form>
 

@@ -73,10 +73,7 @@
                                 <input type="hidden" name="item[]">
                                 казахская литература
                         </div>
-                        <div class="card" data-id="15">
-                                <input type="hidden" name="item[]">
-                                история 
-                        </div>
+                        
                     </div>
                     <button type="submit" id="profession-filter-btn" class="btn btn-danger">
                             Подобрать Предмет

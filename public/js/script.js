@@ -14,8 +14,9 @@ let subjects2 = {
 "русская литература":["русский язык"],
 "казахская /русская литература":["казахский /русский язык"],
 "казахская литература":["казахский язык"],
-"история":["география","человек. общество. право"],
 };
+// "история":["география","человек. общество. право"],
+
 let subIndexes = {
     0:[13],
     1:[6, 2],
@@ -32,11 +33,10 @@ let subIndexes = {
     12:[3],
     13:[0],
     14:[10],
-    15:[2, 9],
 }
 let subjects1 = ["казахский /русский язык","биология","география","русский язык","математика",
 "всемирная история","химия","физика","иностранный язык","человек. общество. право","казахский язык",
-"творческий экзамен","русская литература","казахская /русская литература","казахская литература","история"];
+"творческий экзамен","русская литература","казахская /русская литература","казахская литература"];
 
 document.addEventListener('DOMContentLoaded', ()=>{
     var aTags = document.querySelectorAll('.card');
@@ -54,7 +54,7 @@ function onSubmit(event){
     let count = document.querySelectorAll('.selected').length;
     let countUnselectables = document.querySelectorAll('.unselectable').length;
 
-    if(count != 2 && countUnselectables != 15){
+    if(count != 2 && countUnselectables != 14){
         event.preventDefault();
         alert("Choose one more!");
     }

@@ -44,13 +44,12 @@ $(document).ready(function(){
                         var rec = document.querySelector('.reccomandation');
                         rec.innerHTML = '';
                         for(let i=0;i<data.length;i++){
-                            console.log(data[i]['spec_name']);
                             
                             var divElem = document.createElement('div');
-                            divElem.innerHTML = data[i]['spec_name'];
+                            divElem.innerHTML = data[i]['spec_name']+" "+data[i]['univ_name'];
                             rec.appendChild(divElem);
-
-                        }   
+                        }  
+                        // console.log(data);
                     }
                 });
             }
