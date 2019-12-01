@@ -11107,59 +11107,25 @@ body {
   height: 100vh;
 }
 
-.put-center {
-  height: 100vh;
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-          align-items: center;
+/* direction */
+
+.subheader {
+  width: 100%;
+  height: 400px;
+  background: url(/images/hobbies.jpg?e66556f7bb121640250cdd3f89bd5c8f) center center/cover no-repeat;
 }
 
-.center-part {
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-          flex-direction: column;
-  -webkit-box-align: center;
-          align-items: center;
+#direction-choose-btn {
+  position: absolute;
+  right: 25px;
+  font-size: 25px;
+  padding-bottom: 10px;
+  /* transform: scale(.5, 1); */
 }
 
-form .subjects {
-  height: 100vh;
-}
-
-.subjects {
-  display: -webkit-box;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  -webkit-box-align: center;
-          align-items: center;
-}
-
-.card {
-  border: 1px solid blue;
-  height: 70px;
-  width: 200px;
-  cursor: pointer;
-  color: blue;
-  display: -webkit-box;
-  display: flex;
-  -webkit-box-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-          align-items: center;
-}
-
-.selected {
-  background-color: #000078;
-}
-
-.unselectable {
-  background-color: rgba(0, 0, 0, 0.5);
+.mycontainer {
+  margin-top: 100px;
+  margin-bottom: 200px;
 }
 
 .direction_cards {
@@ -11202,11 +11168,116 @@ form .subjects {
   display: -webkit-box;
   display: flex;
   -webkit-box-pack: center;
-  justify-content: center;
+          justify-content: center;
 }
 
 .unselectable-dir {
   cursor: default;
   background-color: rgba(0, 0, 0, 0.3);
+}
+
+/* welcome */
+
+* {
+  font-family: "Roboto", sans-serif;
+}
+
+.banner,
+.send_request_btn {
+  color: #fff;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  position: relative;
+}
+
+nav {
+  background-color: #212121;
+  height: 50px;
+}
+
+.menu {
+  padding: 13px 70px;
+  margin: 0;
+  display: -webkit-box;
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+}
+
+.menu .menu_item .menu_link {
+  font-size: 15px;
+  color: #fff;
+  text-decoration: none;
+  font-weight: 300;
+}
+
+.menu .menu_item {
+  border-right: 2px dotted black;
+  padding-right: 30px;
+}
+
+.promo {
+  background: url(/images/direction.jpg?e7cb70a88b693a3b4c46e42ab84da5e7) center center/cover no-repeat;
+  padding: 150px 0 135px 0;
+}
+
+.banner h1 {
+  font-weight: 700;
+  font-size: 60px;
+  line-height: 50px;
+}
+
+.banner h2 {
+  font-weight: 400;
+  font-size: 36px;
+}
+
+.big_text {
+  margin-top: 25px;
+  font-size: 17px;
+  text-align: center;
+}
+
+.big_text2 {
+  font-size: 17px;
+  text-align: center;
+  margin-top: 37px;
+}
+
+.subheader .subheader_btn,
+.send_request_btn {
+  width: 172px;
+  height: 46px;
+  box-shadow: inset 0 -3px rgba(0, 0, 0, 0.12);
+  border: none;
+  margin-top: 19px;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#1eacc7), to(#4ce2ff));
+  background-image: linear-gradient(to top, #1eacc7 0%, #4ce2ff 100%);
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.send_request_btn {
+  display: block;
+  margin: 122px auto 0 auto;
+  width: 259px;
+  height: 63px;
+  font-size: 18px;
+  font-weight: 400;
+  box-shadow: inset 0 -6px rgba(0, 0, 0, 0.12);
 }
 

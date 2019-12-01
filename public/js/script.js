@@ -37,29 +37,17 @@ let subIndexes = {
 let subjects1 = ["казахский /русский язык","биология","география","русский язык","математика",
 "всемирная история","химия","физика","иностранный язык","человек. общество. право","казахский язык",
 "творческий экзамен","русская литература","казахская /русская литература","казахская литература"];
-
+var divSubjects = document.querySelectorAll('.card-link');
 document.addEventListener('DOMContentLoaded', ()=>{
-    var aTags = document.querySelectorAll('.card');
+    // var aTags = document.querySelectorAll('.card');
     var i;
-    for(i = 0; i < aTags.length; i++){
-        aTags[i].addEventListener("click", setInputVal, false);
+    for(i = 0; i < divSubjects.length; i++){
+        divSubjects[i].addEventListener("click", setInputVal, false);
     }
     
 });
+var submit_btn = document.querySelector('#mybtn');
 
-var submit_form = document.querySelector('.js-form');
-submit_form.addEventListener('submit', onSubmit,false);
-
-function onSubmit(event){
-    let count = document.querySelectorAll('.selected').length;
-    let countUnselectables = document.querySelectorAll('.unselectable').length;
-
-    if(count != 2 && countUnselectables != 14){
-        event.preventDefault();
-        alert("Choose one more!");
-    }
-    console.log("Hello world");
-}
 
 function setInputVal(e){
     var form = document.querySelector('form');
@@ -67,10 +55,11 @@ function setInputVal(e){
 
     var selectedSubject = e.currentTarget;
     var currentSubjectId = selectedSubject.dataset.id;
-    var divSubjects = document.querySelectorAll('.card');
+    
     var input = selectedSubject.querySelector('input');
     var selected;
 
+    var submit_btn = document.querySelector('#mybtn');
     if(selectedSubject.classList.contains('selected'))
     {
         input.value = "";
@@ -92,9 +81,19 @@ function setInputVal(e){
             turnOffAll(divSubjects,selected, selectedSubject.dataset.id);
         }
         input.value = selectedSubject.dataset.id;
-
     }
+    let count = document.querySelectorAll('.selected').length;
+    let countUnselectables = document.querySelectorAll('.unselectable').length;
     
+    if(count == 2 || countUnselectables == 14){
+        if(submit_btn.hasAttribute('disabled')){
+            submit_btn.disabled = false;
+        }
+    }else{
+        if(!submit_btn.hasAttribute('disabled')){
+            submit_btn.disabled = true;
+        }
+    }
 
 }
 function turnOffUnrelated(divSubjects,id){
@@ -146,3 +145,7 @@ function findFirstSelected(inputDatas){
     return -1;
 }
 
+window.addEventListener('scroll', function() {
+    submit_btn.style.top = (window.scrollY + 500)+'px';
+
+});

@@ -73,4 +73,9 @@ function removeFromArray(item){
     }
 }
 
+var submit_btn = document.querySelector('#direction-choose-btn');
 
+window.addEventListener('scroll', function() {
+    submit_btn.style.top = (window.scrollY + 500)+'px';
+
+});
