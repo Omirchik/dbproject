@@ -1,4 +1,4 @@
-document.addEventListener('DOMContentLoaded', function(event){
+// document.addEventListener('DOMContentLoaded', function(event){
 
     
 
@@ -12,12 +12,31 @@ document.addEventListener('DOMContentLoaded', function(event){
     
     
     // console.log("Hello world");
+// });
+
+// function getOffset(el) {
+//     const rect = el.getBoundingClientRect();
+//     return {
+//       left: rect.left + window.scrollX,
+//       top: rect.top + window.scrollY
+//     };
+//   }
+
+var submit_btn = document.querySelector('#mybtn');
+var subheader_height = document.querySelector('.subheader').clientHeight - 200;
+
+document.addEventListener('DOMContentLoaded', ()=>{
+  submit_btn.style.display = 'none';
 });
 
-function getOffset(el) {
-    const rect = el.getBoundingClientRect();
-    return {
-      left: rect.left + window.scrollX,
-      top: rect.top + window.scrollY
-    };
-  }
+window.addEventListener('scroll', function() {
+    if(subheader_height < 0){
+      subheader_height = document.querySelector('.subheader').clientHeight - 200;
+    }
+    if(this.window.scrollY > subheader_height){
+        submit_btn.style.display = 'block';
+    }else{
+        submit_btn.style.display = 'none';
+    }
+    // this.console.log(subheader_height);
+});

@@ -1,8 +1,14 @@
+h1,h2,h3,h5,h6{
+    margin: 0;
+    padding: 0;
+}
+
 .mapdiv{
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: 50px;
+    margin-top: 100px;  
+
 }
 .mapdiv path{
     fill-rule:evenodd;
@@ -45,4 +51,55 @@
     fill: white;
     font-size: 17px;
     display: block;
+}
+
+.prof_card {
+    border: 2px solid grey;
+    border-radius: 5px;
+    padding: 25px 20px 25px 25px;
+    margin-top: 20px;
+    font-weight: 300;
+    font-family: 'Roboto', sans-serif;
+}
+.prof_name {
+    font-size: 28px;
+    font-weight: 500;
+    color: #2b2d38;
+    /* color: #3b3e4d; */
+}
+.spec_name{
+    color: #0C090A;
+    font-weight: 400;
+}
+.spec_descr{
+    color: #3b3e4d;
+    font-weight: 300;
+}
+
+.about_univ{
+    font-size: 17px;
+    font-weight: 400;
+}
+ul {
+    display: block;
+    list-style-type: disc;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 40px;
+}
+ol {
+    display: block;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 40px;
+}
+.disabled-link{
+    pointer-events: none;
+}
+.disabled-path {
+    fill: grey;
+    fill-opacity:0.80588236;
 }

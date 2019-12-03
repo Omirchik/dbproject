@@ -27,3 +27,7 @@ Route::post('show_specialties', 'TestController@showSpecialties');
 
 Route::post('/post-data', 'TestController@recieveData')->name('postData');
 
+Route::get('locale/{locale}', function($locale){
+    Session::put('locale',$locale);
+    return redirect()->back();
+});

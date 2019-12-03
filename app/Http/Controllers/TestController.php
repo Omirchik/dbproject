@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use DB;
-
+use Session;
 class TestController extends Controller
 {
     public function chooseSubjects(){
@@ -15,6 +15,8 @@ class TestController extends Controller
 
     }
     public function showDirection(Request $request){
+
+        $lan = Session::get('locale');
 
         $subjects = $request->input('item');
         $subject_list = [];
@@ -33,32 +35,35 @@ class TestController extends Controller
             $sub2 = $sub1;
         }
 
-        $subject1 = DB::select('select subject_name from subjects where subject_id = \''.$sub1.'\'');
-        $subject2 = DB::select('select subject_name from subjects where subject_id = \''.$sub2.'\'');
-        
-        
+        $subject1 = DB::select('select * from subjects_all where subject_id = \''.$sub1.'\'');
+        $subject2 = DB::select('select * from subjects_all where subject_id = \''.$sub2.'\'');
 
-        $sub1_n = $subject1[0]->subject_name;
-        $sub2_n = $subject2[0]->subject_name;
+        $v_subject = 'subject_ru';
+        
+        if ($lan == 'en') {
+            $v_subject = 'subject_en';
+        }else if($lan == 'kz'){
+            $v_subject = 'subject_kz';
+        }
+        $sub1_n = $subject1[0]->$v_subject;
+        $sub2_n = $subject2[0]->$v_subject;
 
-        $result = DB::executeProcedure('slice_by', [
+        $result = DB::executeProcedure('slice_by_lang', [
             'p_subject1'  => $sub1_n,
-            'p_subject2'  => $sub2_n
+            'p_subject2'  => $sub2_n,
+            'p_lang' => $lan,
         ]);
 
-        $directions = DB::select('select unique(prof_direction) from vw_prof_spec');
+        $directions = DB::select('select unique(prof_direction) from vw_prof_spec_'.$lan);
         
         return view('show_direction', compact('directions'));
     }
 
     public function showProfessions(Request $request){
         $directions = $request->input('item');       
+        $lan = Session::get('locale');
 
-        
-        $my_view = DB::select('select * from vw_prof_spec');
-
-
-        $sql_query = 'select prof_name, min(prof_description) as prof_description from vw_prof_spec where prof_direction in (';
+        $sql_query = 'select prof_name, min(prof_description) as prof_description from vw_prof_spec_'.$lan.' where prof_direction in (';
 
         for ($i=0; $i < count($directions); $i++) { 
             $sql_query = $sql_query.'\'' .  $directions[$i] . '\',';
@@ -73,36 +78,49 @@ class TestController extends Controller
     } 
     public function showSpecialties(Request $request){
 
-        $prof_names = $request->input('item');        
-        return view('show_specialties')->with('prof_names', $prof_names);
+        $lan = Session::get('locale');
+
+        $prof_names = $request->input('item');
+
+
+        $query = 'select distinct u.region_id 
+            from vw_prof_spec_' .$lan. ' v, universities_' . $lan . ' u, bt_univ_spec bus 
+            where  bus.spec_id = v.spec_id and bus.univ_id = u.univ_id and v.prof_name in ( ';
+
+        for ($i=0; $i < count($prof_names); $i++) { 
+            $query = $query.'\'' .  $prof_names[$i] . '\',';
+        }
+        $query = substr_replace($query, ')', strlen($query)-1);
+
+        $regids = DB::select($query);
+
+        return view('show_specialties', compact('prof_names', 'regids'));
+
     }
     public function recieveData(Request $request){
-        
+        $lan = Session::get('locale');
+
         $box = $request->all();        
         $myValue = array();
         parse_str($box['body'], $myValue);
         
         $codes = $myValue['item'];
-        // print_r($myValue['item'][0]);
+        $reg_id = $myValue['region_id'];
+  
 
-        $region_id = $myValue['region_id'];
-
-        $query = 'select distinct v.code, v.spec_name, v.kz_point, v.ru_point, u.univ_name, u.city, u.region_name, u.street 
-            from vw_prof_spec v, universities u, bt_univ_spec bus 
-            where u.region_id = ' . $region_id . ' and bus.spec_id = v.spec_id and bus.univ_id = u.univ_id and prof_name in ( ';
+        $query = 'select distinct v.prof_name, v.code,v.spec_description, v.spec_name, v.kz_point, v.ru_point,u.univ_code, u.univ_name, u.city, u.region_name, u.street 
+            from vw_prof_spec_' .$lan. ' v, universities_' . $lan . ' u, bt_univ_spec bus 
+            where u.region_id = ' . $reg_id . ' and bus.spec_id = v.spec_id and bus.univ_id = u.univ_id and v.prof_name in ( ';
 
         for ($i=0; $i < count($codes); $i++) { 
             $query = $query.'\'' .  $codes[$i] . '\',';
         }
-        $query = substr_replace($query, ')', strlen($query)-1);
+        $query = substr_replace($query, ') order by v.prof_name, v.spec_name', strlen($query)-1);
 
         
         $data = DB::select($query);
 
         return response()->json($data);
-
-
-
     }
 }
 

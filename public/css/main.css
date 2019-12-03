@@ -1,0 +1,216 @@
+@import url('https://fonts.googleapis.com/css?family=Nunito:400i,700i&display=swap&subset=cyrillic-ext');
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700i&display=swap&subset=cyrillic-ext');
+
+html , body{
+    margin: 0;
+    padding: 0;
+
+  }
+  body{
+    position: relative;
+    padding-bottom: 342px;
+    min-height: 100vh;
+  }
+  /* welcome */
+  
+  .nav{
+    position: absolute;
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+    color: #fff; 
+    display: flex;
+    justify-content: flex-end;
+    z-index: 2;
+  }
+  .subheader{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    
+  }
+  .subheader *{
+    color: white;
+    z-index: 1;
+  }
+  .subheader h1{
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 50px;
+  }
+  .subheader h2{
+    font-weight: 400;
+    font-size: 26px;
+  }
+  #color-overlay{
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: .4;
+    position: absolute;
+  }
+
+  .menu{
+    line-height: 45px;
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  
+  .nav ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .nav .menu .menu_item{
+    display: inline-block;
+    position: relative;
+  
+  }
+  
+  .menu_item:hover{
+    background-color: #2c3e50;
+  }
+  
+  .nav .menu .menu_item a{
+    padding: 12px 24px;
+    cursor: pointer;
+    text-decoration: none;
+    color: #fff;
+    display: block;
+  }
+  .submenu{
+    text-transform: none;
+    display: none;
+    position: absolute;
+    width: 220px;
+    background-color: rgba(0,0,0,0.8);
+  
+  }
+  .menu_item:hover .submenu{ 
+    display: block;
+  }
+  .submenu_item{
+      border-left: 4px solid transparent;  
+  }
+  
+  .submenu_item:hover{
+    background-color: rgba(0,0,0,0.6);
+    border-left: 4px solid rgba(450,0,60,0.8);  
+  }
+  
+  #mybtn{
+    position: fixed;
+    top: 100px;
+    right: 20px;
+    font-size:30px;
+    color: white;
+    z-index: 1;
+  }
+  
+  .promo{
+      background: url('../images/welcome.jpg') center center / cover no-repeat;
+      padding: 68.52px 0 135px 0;
+      color: #fff;
+      position: relative;
+  }
+  .banner{
+    margin-top: 100px;
+    text-align: center;
+  }
+  .banner h1,h2, .send_request_btn, .subheader h1{
+    font-family: 'Roboto', sans-serif;
+  }
+  .banner .big_text, .big_text2, .menu_item, .subheader h2{
+    font-family: 'Nunito', sans-serif;
+  }
+  .banner h1{
+      font-weight: 700;
+      font-size: 50px;
+      line-height: 50px;
+      text-transform: uppercase;
+  }
+  .banner h2{
+      font-weight: 400;
+      font-size: 36px;
+  
+  }
+  .big_text{
+      margin-top: 25px;
+      font-size: 17px;
+      text-align: center;
+  }
+  .big_text2{
+      font-size: 20px;
+      text-align: center;
+      margin-top: 37px;
+  
+  }
+  .send_request_btn{
+      width: 172px;
+      height: 46px;
+      box-shadow: inset 0 -3px rgba(0, 0, 0, 0.12);
+      border: none;
+      margin-top: 19px;
+      background-image: linear-gradient(to top, #1eacc7 0%, #4ce2ff 100%);
+      border-radius: 4px;
+      text-transform: uppercase;
+      color: white;
+      font-size: 18px;
+      font-weight: 400;
+      
+  }
+  .send_request_btn{
+      display: block;
+      margin: 122px auto 0 auto;
+      width: 259px;
+      height: 63px;
+      box-shadow: inset 0 -6px rgba(0, 0, 0, 0.12);
+  }
+  
+  /* // Footer part */
+  
+  .footer{
+    /* background: #152f4f; */
+    background: #000;
+    color: white;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+  
+  .footer .links ul {
+  list-style-type: none;
+  }
+  .footer .links li a {
+  color: white;
+  transition: color 0.2s;
+  }
+  .footer .links li a:hover {
+  text-decoration: none;
+  color: #4180cb;
+  }
+  .footer .about-company i {
+  font-size: 25px;
+  }
+  .footer .about-company a {
+  color: white;
+  transition: color 0.2s;
+  }
+  .footer .about-company a:hover {
+  color: #4180cb;
+  }
+  .contacts_pm{
+  margin-left: 5px;
+  }
+  .footer .copyright p {
+  border-top: 1px solid rgba(255, 255, 255, .1);
+  }
+
+  /* All */
+.mycontainer{
+  font-family: 'Nunito', sans-serif;
+  margin-top: 45px;
+  margin-bottom: 100px;
+}

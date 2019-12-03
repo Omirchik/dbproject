@@ -15,6 +15,14 @@
 
 @section('content')
 <div class="container">
+		
+		<form class="regions_form">
+				@csrf
+				@foreach ($regids as $regid)
+				 <input type="hidden" name="regs[]" value="{{$regid->region_id}}" class="reg_ids">
+				@endforeach
+			   </form>
+
 		<div class="mapdiv">
 
 			<svg
@@ -227,7 +235,7 @@
 	</form>
 
 
-	<div class="reccomandation">
+	<div id="recomendations">
 		
 	</div>
 

@@ -1,6 +1,6 @@
 profs = [];
 var profCards = document.querySelectorAll('.card-body');
-var btn = document.querySelector('#profs-choose-btn');
+var btn = document.querySelector('#mybtn');
 
 var popUp = document.querySelector('.bg-modal');
 var popUpTitle = document.querySelector('.title');
@@ -11,6 +11,11 @@ prof_title = []
 
 document.addEventListener("DOMContentLoaded", function(event) {
     
+    const name = "Alex";
+    const str = 
+    `Привет, ${name},
+    как дела?`;
+    console.log(str);
     for (i = 0; i < profCards.length; i++) {
         var cardText = profCards[i].querySelector('.card-text');
         let text = cardText.textContent.trim();
@@ -35,6 +40,10 @@ document.addEventListener("DOMContentLoaded", function(event) {
         viewBtns[i].addEventListener('click', viewCard, false);
 
     }
+    // var h = document.querySelector('.profs_cards').clientHeight;
+    // console.log(h);
+    // document.querySelector('.bg-modal').style.height = h; 
+    // console.log(document.querySelector('.bg-modal').style.height);
 });
 function viewCard(e){
     e.preventDefault();
@@ -44,7 +53,13 @@ function viewCard(e){
     popUpTitle.textContent = prof_title[clickedCardIndex];
     popUpText.textContent = prof_descr[clickedCardIndex];
     // alert(e.currentTarget.parentElement.parentElement);
-    popUp.style.top = window.scrollY+'px';
+    // Math.floor(e.currentTarget.dataset.id/4)*150
+    // console.log(window.scrollY);
+
+    // popUp.style.top = (window.scrollY - 300)+'px';
+    document.querySelector('.modal-content').style.top = (window.scrollY + 100)+'px';
+    console.log(window.scrollY);
+    
     popUp.style.display = 'flex';
 }
 
@@ -102,8 +117,16 @@ function truncateString(str, k,num){
     return str.slice(0,num-k)+"...";
 }
 
-window.addEventListener('scroll', function() {
-    var btn = document.querySelector('#profs-choose-btn');
-    btn.style.top = (window.scrollY + 100)+'px';
+// window.addEventListener('scroll', function() {
+//     console.log(window.scrollY);
 
-});
+//     this.console.log(subheader_height);
+// });
+
+function getOffset(el) {
+    const rect = el.getBoundingClientRect();
+    return {
+        left: rect.left + window.scrollX,
+        top: rect.top + window.scrollY
+    };
+}

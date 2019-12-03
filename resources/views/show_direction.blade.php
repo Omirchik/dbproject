@@ -1,16 +1,14 @@
 @extends('layouts.app')
     
 @section('jscss')
+    <script src="{{ asset('js/welcome.js')}}" defer></script>
     <script src="{{ asset('js/choose_direction.js')}}" defer></script>
-    <link rel="stylesheet" href="{{ asset('css/app.css') }}" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/direction.css') }}" type="text/css">
 @endsection
 
 @section('subheader')
-        <div class="subheader">
-                <div class="container">
-                        Hello world choose subjects
-                </div>
-        </div>
+    <h1>{{__('subjects.dir-header')}}</h1>
+    <h2>{{__('subjects.dir-subheader')}}</h2>
 @endsection
 
 @section('content')
@@ -29,7 +27,7 @@
                 @endforeach
             </div>
             
-            <button type="submit" id="direction-choose-btn" class="btn btn-info" disabled>
+            <button type="submit" id="mybtn" class="btn btn-info" disabled>
                 &#8594
             </button>
             

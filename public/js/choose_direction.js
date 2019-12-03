@@ -22,11 +22,11 @@ function onSubmit(event){
         submit_form.appendChild(x);        
     }
 }
+var btn = document.querySelector('#mybtn');
 
 function addDir(e){
     var selectedDir = e.currentTarget;
     var dirText = selectedDir.textContent.trim();
-    var btn = document.querySelector('#direction-choose-btn');
 
     if(selectedDir.classList.contains('selected-dir')){
         removeFromArray(dirText);
@@ -73,9 +73,4 @@ function removeFromArray(item){
     }
 }
 
-var submit_btn = document.querySelector('#direction-choose-btn');
 
-window.addEventListener('scroll', function() {
-    submit_btn.style.top = (window.scrollY + 500)+'px';
-
-});

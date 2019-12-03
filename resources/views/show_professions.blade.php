@@ -1,22 +1,42 @@
 @extends('layouts.app')
 
 @section('jscss')
+    <script src="{{ asset('js/welcome.js')}}" defer></script>
     <script src="{{ asset('js/choose_prof.js')}}" defer></script>
     
-    <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}">
-    <link rel="stylesheet" href="{{asset('css/bootstrap-grid.min.css')}}">
-
     <link rel="stylesheet" href="{{ asset('css/prof_style.css') }}" type="text/css">
 
 @endsection
 
+@section('subheader')
+
+    <h1>{{__('subjects.prof-header')}}</h1>
+    <h2>{{__('subjects.prof-subheader')}}</h2>
+
+@endsection
+
+
 @section('content')
+{{-- <div class="big-container"> --}}
 
-<div class="container">
+<div class="bg-modal">
+        <div class="modal-content">
+            <div class="close">+</div>
+            <h5 class="title">
+                Hello
+            </h5>
+            <div class="text-content">
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus enim sunt possimus. Consequatur tempora molestias, in provident expedita ea nesciunt a debitis ab iure blanditiis sit eum! Illum, reprehenderit fuga.
+            </div>
+        </div>
+</div>
 
+<div class="container mycontainer">
+        
     <form action="show_specialties" class="profs_form" method="POST">
         @csrf
         <div class="profs_cards">
+            
             @for ($i = 0; $i < count($professions)/4; $i++)
                 
                 <div class="row equal">
@@ -42,10 +62,11 @@
                 
                 </div>
             @endfor
-            <button type="submit" id="profs-choose-btn" class="btn btn-success" disabled>
-                    &#8594
-            </button>
+            
         </div>
+        <button type="submit" id="mybtn" class="btn btn-success" disabled>
+                &#8594
+        </button>
     </form>
 </div>
 
@@ -56,7 +77,7 @@
 {{-- </div> --}}
 
 
-<div class="bg-modal">
+{{-- <div class="bg-modal">
         <div class="modal-content">
             <div class="close">+</div>
             <h5 class="title">
@@ -66,8 +87,9 @@
                 Lorem ipsum dolor sit amet consectetur adipisicing elit. Ducimus enim sunt possimus. Consequatur tempora molestias, in provident expedita ea nesciunt a debitis ab iure blanditiis sit eum! Illum, reprehenderit fuga.
             </div>
         </div>
-</div>
+</div> --}}
 
+{{-- </div> --}}
 
 
 @endsection

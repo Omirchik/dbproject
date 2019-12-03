@@ -38,6 +38,8 @@ let subjects1 = ["казахский /русский язык","биология
 "всемирная история","химия","физика","иностранный язык","человек. общество. право","казахский язык",
 "творческий экзамен","русская литература","казахская /русская литература","казахская литература"];
 var divSubjects = document.querySelectorAll('.card-link');
+var submit_btn = document.querySelector('#mybtn');
+
 document.addEventListener('DOMContentLoaded', ()=>{
     // var aTags = document.querySelectorAll('.card');
     var i;
@@ -46,7 +48,6 @@ document.addEventListener('DOMContentLoaded', ()=>{
     }
     
 });
-var submit_btn = document.querySelector('#mybtn');
 
 
 function setInputVal(e){
@@ -145,7 +146,13 @@ function findFirstSelected(inputDatas){
     return -1;
 }
 
-window.addEventListener('scroll', function() {
-    submit_btn.style.top = (window.scrollY + 500)+'px';
+// var bool_btn = true;
+// var subheader_height = document.querySelector('.subheader').clientHeight - 100;
 
-});
+// window.addEventListener('scroll', function() {
+//     if(this.window.scrollY > subheader_height){
+//         submit_btn.style.display = 'block';
+//     }else{
+//         submit_btn.style.display = 'none';
+//     }
+// });
